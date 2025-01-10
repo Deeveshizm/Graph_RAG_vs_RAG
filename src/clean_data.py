@@ -13,7 +13,7 @@ def classify_description(row):
 
 def clean_data(df):
     # Remove rows with missing values
-    df['CustomerID'] = df['CustomerID'].fillna('Unknown_'+ df['InvoiceNo'])
+    df['CustomerID'] = df['CustomerID'].fillna('Unknown_'+ df['InvoiceNo']).astype(str)
     
     # Convert InvoiceDate to datetime
     df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'], dayfirst=True, errors='coerce').strftime('%Y-%m-%d %H:%M:%S')
